@@ -7,61 +7,40 @@ public class GameManager : MonoBehaviour
     private const string SCORE = "Score";
     private const string SAMPLE_SCENE_NAME = "SampleScene";
     
-    [SerializeField]
-    Cinemachine.CinemachineVirtualCamera cvc;
-    public static GameManager instance;
+    public static GameManager Instance;
+    public CameraManager CameraManager;
     float _prevTimeScale = 1;
-    GameState gameState = GameState.MenuScreen;
 
     private void Awake()
     {
-        instance = this;
+        Instance = this;
         PauseGame();
     }
     private void OnEnable()
     {
-        instance = this;
+        Instance = this;
     }
 
-    public void PlayGame()
+    private void SetupSystems()
     {
-        if (gameState == GameState.GameScreen)
-        {
-            Time.timeScale = _prevTimeScale;
-        }
+        CameraManager = new CameraManager();
     }
-
+    
     public void SaveHighScore()
     {
-        var currentMaxScore = PlayerPrefs.GetInt(SCORE);
+        var currentMaxScore = SaveLocallyHandler.LoadInt(SCORE);
         var currentGameScore = 0;
         
         if (currentGameScore > currentMaxScore)
         {
-            PlayerPrefs.SetInt(SCORE, currentGameScore);
+            SaveLocallyHandler.SaveInt(SCORE, currentGameScore);
         }
     }
-
-    public void SetMenuScreenGameState()
-    {
-        gameState = GameState.MenuScreen;
-    }
-
-    public void SetGameScreenGameState()
-    {
-        gameState = GameState.GameScreen;
-    }
-
+    
     public void PauseGame()
     {
         _prevTimeScale = Time.timeScale;
         Time.timeScale = 0;
-    }
-
-    public enum GameState
-    {
-        MenuScreen,
-        GameScreen,
     }
 
     public void Restart()
