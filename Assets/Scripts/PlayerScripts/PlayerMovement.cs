@@ -13,9 +13,12 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField]
     private int Speed;
-
+    [SerializeField]
+    private int roll_speed;
+    private float roll_time;
     //private Animator animator;
 
+    private bool can_dash = true;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -23,6 +26,7 @@ public class PlayerMovement : MonoBehaviour
     }
     private void Update()
     {
+        
         Move();
     }
 
@@ -30,7 +34,24 @@ public class PlayerMovement : MonoBehaviour
     {
         MoveDirectionX = Input.GetAxisRaw("Horizontal");
         MoveDirectionY = Input.GetAxisRaw("Vertical");
-        rb.velocity = new Vector2(MoveDirectionX * Speed, MoveDirectionY * Speed);
+        rb.AddForce( new Vector2(MoveDirectionX * Speed, MoveDirectionY * Speed), ForceMode2D.Force);
+
+        if (Input.GetKey(KeyCode.Space) && can_dash)
+        {
+            Roll();
+        }
     }
 
+    void Roll()
+    {
+        can_dash = false;
+        rb.AddForce(new Vector2(MoveDirectionX, MoveDirectionY) * roll_speed, ForceMode2D.Impulse);
+        StartCoroutine(start_dash());  
+    }
+
+    IEnumerator start_dash()
+    {
+        yield return new WaitForSeconds(roll_time);
+        can_dash = true;
+    }
 }
