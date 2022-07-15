@@ -16,8 +16,8 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         Instance = this;
+
         SetupSystems();
-        PauseGame();
     }
     private void OnEnable()
     {
