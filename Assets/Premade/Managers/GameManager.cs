@@ -9,11 +9,14 @@ public class GameManager : MonoBehaviour
     
     public static GameManager Instance;
     public CameraManager CameraManager;
+    public GameEventsSystem GameEventsSystem;
+    
     float _prevTimeScale = 1;
 
     private void Awake()
     {
         Instance = this;
+        SetupSystems();
         PauseGame();
     }
     private void OnEnable()
@@ -24,6 +27,7 @@ public class GameManager : MonoBehaviour
     private void SetupSystems()
     {
         CameraManager = new CameraManager();
+        GameEventsSystem = new GameEventsSystem();
     }
     
     public void SaveHighScore()
