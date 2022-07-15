@@ -5,21 +5,21 @@ using UnityEngine;
 public class RoomGenerator : MonoBehaviour
 {
     [SerializeField] private Room _room;
-    [SerializeField] private Vector2 _numOfRooms = new Vector2(3,3);
+    [SerializeField] private Vector2Int _numOfRooms = new Vector2Int(3,3);
     
     [ContextMenu("Generate rooms")]
     public void GenerateRooms()
     {
         GameObject roomsParent = new GameObject("RoomsParent");
         
-        var roomSize = _room.RoomSprite.size.x;
+        var roomSize = _room.RoomSprite.bounds.size.x;
 
-        for (int i = 0; i < _numOfRooms.x; i++)
+        for (int i = _numOfRooms.x-1; i >=0; i--)
         {
-            for (int j = 0; j < _numOfRooms.y; j++)
+            for (int j = _numOfRooms.y-1; j >= 0 ; j--)
             {
-                Instantiate(_room.gameObject, roomsParent.transform);
-                _room.transform.localPosition = new Vector3(i * roomSize, j * roomSize);
+                var room = Instantiate(_room.gameObject, roomsParent.transform);
+                room.transform.localPosition = new Vector3(i * roomSize, j * roomSize);
             }
         }
     }

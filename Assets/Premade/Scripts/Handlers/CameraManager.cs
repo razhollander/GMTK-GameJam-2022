@@ -15,6 +15,8 @@ public class CameraManager
     public CameraManager()
     {
         _mainCamera = Camera.main;
+        _mainCamera.transparencySortMode = TransparencySortMode.CustomAxis;
+        _mainCamera.transparencySortAxis = Vector3.up;
 
         ScreenBounds = _mainCamera.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, _mainCamera.transform.position.z));
     }
