@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+[CreateAssetMenu()]
 public class Card : ScriptableObject
 {
-    public Image CardImage;
+    public Sprite CardImage;
     public GameEvent CardGameEvent;
 }
