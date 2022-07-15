@@ -19,9 +19,9 @@ public abstract class GaneEventListener : MonoBehaviour
 
 public enum GameEvent
 {
-    Flood,
-    Electricity,
-    Lockdown,
-    Alarm,
-    Freeze
+    Flood = 0,
+    Electricity = 1,
+    Lockdown = 2,
+    Alarm = 3,
+    Freeze = 4
 }
