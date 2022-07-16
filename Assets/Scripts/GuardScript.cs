@@ -5,7 +5,9 @@ using UnityEngine;
 public class GuardScript : GaneEventListener
 {
     // Start is called before the first frame update
-    int layer;
+    int playerLayer;
+    int laserLayer;
+
     [SerializeField] float range;
     UnityEngine.Rendering.Universal.Light2D light;
     public Transform end_point;
@@ -16,6 +18,8 @@ public class GuardScript : GaneEventListener
     Rigidbody2D rb;
     public bool returning = false;
     SpriteRenderer renderer;
+    [SerializeField] private Transform flashLight;
+    
     public override void OnGameEvent(GameEvent gameEvent)
     {
         move_speed = initial_speed;
@@ -35,7 +39,8 @@ public class GuardScript : GaneEventListener
     void Awake()
     {
         initial_speed = move_speed;
-        layer = LayerMask.GetMask("Player");
+        playerLayer = LayerMask.GetMask("Player");
+        laserLayer = LayerMask.GetMask("Laser");
         rb = GetComponentInChildren<Rigidbody2D>();
         light = GetComponentInChildren<UnityEngine.Rendering.Universal.Light2D>();
         renderer = GetComponentInChildren<SpriteRenderer>();
@@ -43,11 +48,15 @@ public class GuardScript : GaneEventListener
 
     void Update()
     {
-        if (Physics2D.Raycast(transform.position, Vector2.up, range, layer))
+        Debug.DrawRay(transform.position, flashLight.up * range, Color.red, 1000);
+
+        var hit = Physics2D.Raycast(flashLight.position, flashLight.up, range, playerLayer | laserLayer);
+        
+        if (hit.collider != null && hit.collider.gameObject.CompareTag("Player"))
         {
             light.color = Color.red;
+            //Debug.DrawRay(transform.position, flashLight.right * range, Color.red);
         }
-        Debug.DrawRay(transform.position, Vector2.up * range, Color.red);
         Move();
     }
 
@@ -87,12 +96,14 @@ public class GuardScript : GaneEventListener
         diff.Normalize();
         if (diff.x > 0)
         {
-            renderer.gameObject.transform.localScale = new Vector3(-1, 1, 1);
+            var prevScale = renderer.gameObject.transform.localScale;
+            renderer.gameObject.transform.localScale = new Vector3(-0.1f, prevScale.y,prevScale.z);
         }
 
         else
         {
-            renderer.gameObject.transform.localScale = new Vector3(1, 1, 1);
+            var prevScale = renderer.gameObject.transform.localScale;
+            renderer.gameObject.transform.localScale = new Vector3(0.1f,  prevScale.y,prevScale.z);
         }
     }
 
