@@ -177,6 +177,7 @@ GameObject:
   - component: {fileID: 9141011739072452553}
   - component: {fileID: 9141011739072452567}
   - component: {fileID: 9141011739072452552}
+  - component: {fileID: 18604187157905555}
   m_Layer: 0
   m_Name: Laser
   m_TagString: Untagged
@@ -319,6 +320,26 @@ MonoBehaviour:
   laserHead: {fileID: 9141011739127240388}
   startPos: {fileID: 9141011738618255254}
   range: 50
+--- !u!95 &18604187157905555
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9141011739072452555}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &9141011739127240389
 GameObject:
   m_ObjectHideFlags: 0
@@ -343,7 +364,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9141011739127240389}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: -0.0009598613, w: 0.9999996}
   m_LocalPosition: {x: -0.41, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 0.2244341, z: 1}
   m_ConstrainProportionsScale: 0
@@ -352,7 +373,7 @@ Transform:
   - {fileID: 1318354196044654975}
   m_Father: {fileID: 9141011739072452553}
   m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -0.11}
 --- !u!212 &9141011739127240387
 SpriteRenderer:
   m_ObjectHideFlags: 0
