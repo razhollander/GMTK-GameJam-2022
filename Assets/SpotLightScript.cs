@@ -6,7 +6,8 @@ public class SpotLightScript : MonoBehaviour
 {
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Player")
+        var m = LayerMask.NameToLayer("Player");
+        if (collision.tag == "Player" && collision.gameObject.layer == m)
         {
             GameManager.Instance.GameOver();
         }

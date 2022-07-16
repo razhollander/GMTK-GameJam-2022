@@ -22,19 +22,19 @@ public class Loot : MonoBehaviour
     private bool isGiveAlready = false;
     private void Awake()
     {
-        if (_moneyAmount <= _smallAmount)
+        if (_moneyAmount < _mediumAmount)
         {
             _image.sprite = SmallLootImage;
         }
         else
         {
-            if (_moneyAmount <= _mediumAmount)
+            if (_moneyAmount < _bigAmount)
             {
                 _image.sprite = MediumLootImage;
             }
             else
             {
-                if (_moneyAmount <= _bigAmount)
+                if (_moneyAmount >= _bigAmount)
                 {
                     _image.sprite = BigLootImage;
                 }
