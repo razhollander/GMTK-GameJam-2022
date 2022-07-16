@@ -55,6 +55,7 @@ public class GuardScript : GaneEventListener
         if (hit.collider != null && hit.collider.gameObject.CompareTag("Player"))
         {
             light.color = Color.red;
+            GameManager.Instance.GameOver();
             //Debug.DrawRay(transform.position, flashLight.right * range, Color.red);
         }
         Move();

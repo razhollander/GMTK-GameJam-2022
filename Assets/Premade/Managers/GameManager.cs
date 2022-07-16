@@ -12,7 +12,7 @@ public class GameManager : MonoBehaviour
     public CameraManager CameraManager;
     public GameEventsSystem GameEventsSystem;
     public CardsManager CardManager;
-
+    public Canvas canvas;
     [SerializeField] public MoneyManager MoneyManager;
     
     float _prevTimeScale = 1;
@@ -61,8 +61,20 @@ public class GameManager : MonoBehaviour
 
     public void Restart()
     {
-        Time.timeScale = _prevTimeScale;
+        Time.timeScale = 1;
         Pool.pools = new Dictionary<PooledMonobehaviour, Pool>();
         SceneManager.LoadScene(SAMPLE_SCENE_NAME);
     }
+
+    public void GameOver()
+    {
+        Time.timeScale = 0;
+        canvas.GetComponent<Animator>().SetBool("GameOver", true);
+    }
+
+    public void Quit()
+    {
+        Application.Quit();
+    }
+
 }

@@ -427,7 +427,7 @@ Transform:
   - {fileID: 2301635630591478795}
   - {fileID: 6425963275052748055}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2438867288940550825
 MonoBehaviour:
@@ -444,7 +444,7 @@ MonoBehaviour:
   camera_head: {fileID: 7734640822374776108}
   _chosenPath: {fileID: 6080114127858237818}
   light_spot: {fileID: 6162292689867207926}
-  lightSpeed: 3
+  lightSpeed: 2
   minDist: 1
 --- !u!95 &6023774555156326085
 Animator:
@@ -560,6 +560,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4355156019357107462}
   - component: {fileID: 9149099931310098687}
+  - component: {fileID: 5774625269506066392}
+  - component: {fileID: 4694448681195832883}
   m_Layer: 0
   m_Name: Spot
   m_TagString: Untagged
@@ -660,6 +662,34 @@ MonoBehaviour:
   - {x: 0.5, y: -0.5, z: 0}
   - {x: 0.5, y: 0.5, z: 0}
   - {x: -0.5, y: 0.5, z: 0}
+--- !u!58 &5774625269506066392
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6162292689867207926}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.000000036742524, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.17600772
+--- !u!114 &4694448681195832883
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6162292689867207926}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2df2a99a3eb061489d2e12f932e5cd9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8203613632796011400
 GameObject:
   m_ObjectHideFlags: 0

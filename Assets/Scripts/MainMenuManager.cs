@@ -11,11 +11,6 @@ public class MainMenuManager : MonoBehaviour
         animator = GetComponent<Animator>();
     }
 
-    void Update()
-    {
-        
-    }
-
     public void StartAnimation()
     {
         animator.SetBool("Start", true);

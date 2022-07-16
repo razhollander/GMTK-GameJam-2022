@@ -35,6 +35,7 @@ public class LaserScript : MonoBehaviour
         {
             var dist = Vector3.Distance(hitPlayer.point, startPos.position);
             Draw2DRay(dist);
+            GameManager.Instance.GameOver();
         }
         else
         {
