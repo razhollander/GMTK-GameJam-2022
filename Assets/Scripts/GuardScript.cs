@@ -19,7 +19,7 @@ public class GuardScript : GaneEventListener
     public bool returning = false;
     SpriteRenderer renderer;
     [SerializeField] private Transform flashLight;
-    
+    private bool didCatchPlayer = false;
     public override void OnGameEvent(GameEvent gameEvent)
     {
         move_speed = initial_speed;
@@ -52,10 +52,12 @@ public class GuardScript : GaneEventListener
 
         var hit = Physics2D.Raycast(flashLight.position, flashLight.up, range, playerLayer | laserLayer);
         
-        if (hit.collider != null && hit.collider.gameObject.CompareTag("Player"))
+        if (hit.collider != null && hit.collider.gameObject.CompareTag("Player") && !didCatchPlayer)
         {
             light.color = Color.red;
             GameManager.Instance.GameOver();
+            didCatchPlayer = true;
+
             //Debug.DrawRay(transform.position, flashLight.right * range, Color.red);
         }
         Move();

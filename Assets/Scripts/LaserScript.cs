@@ -30,27 +30,71 @@ public class LaserScript : MonoBehaviour
     void ShootLaser()
     {
         dir = -laserHead.right;
-        var hitPlayer = Physics2D.Raycast(startPos.position, dir, range, playerLayer);
-        if ( hitPlayer.collider!=null)
+        float dist=0;
+        var hit = Physics2D.Raycast(startPos.position, dir, range, enviormentLayer | laserLayer);
+
+        if (hit.collider != null)
         {
-            var dist = Vector3.Distance(hitPlayer.point, startPos.position);
+            dist = Vector3.Distance(hit.point, startPos.position);
             Draw2DRay(dist);
-            GameManager.Instance.GameOver();
-        }
-        else
-        {
-            var hit = Physics2D.Raycast(startPos.position, dir, range, enviormentLayer|laserLayer);
-            if (hit.collider!=null)
+            
+            if (hit.collider.tag == "Player")
             {
-                var dist = Vector3.Distance(hit.point, startPos.position);
-                Draw2DRay(dist);
-            }
-            else
-            {
-                var dist = range;
-                Draw2DRay(dist);
+                GameManager.Instance.GameOver();
             }
         }
+        //var hit = Physics2D.Raycast(startPos.position, dir, range, enviormentLayer);
+        //var envCollider =
+        //if (hit.collider!=null)
+        //{
+        //    var envCollider =
+        //        dist = Vector3.Distance(hit.point, startPos.position);
+        //}
+        //
+        //hit = Physics2D.Raycast(startPos.position, dir, range, laserLayer);
+        //if(
+//
+        //    if (hit.collider != null)
+        //    {
+        //        dist = Vector3.Distance(hit.point, startPos.position);
+        //        Draw2DRay(dist);
+//
+        //        if (hit.collider.tag == "Player")
+        //        {
+        //            GameManager.Instance.GameOver();
+        //        }
+        //    }
+        //    else
+        //    {
+        //        dist=range;
+        //    }
+        //}
+        //Draw2DRay(dist);
+        
+
+        //var hitPlayer = Physics2D.Raycast(startPos.position, dir, range, playerLayer);
+
+
+        //if ( hitPlayer.collider!=null)
+        //{
+        //    var dist = Vector3.Distance(hitPlayer.point, startPos.position);
+        //    Draw2DRay(dist);
+        //    GameManager.Instance.GameOver();
+        //}
+        //else
+        //{
+        //    var hit = Physics2D.Raycast(startPos.position, dir, range, enviormentLayer|laserLayer);
+        //    if (hit.collider!=null)
+        //    {
+        //        var dist = Vector3.Distance(hit.point, startPos.position);
+        //        Draw2DRay(dist);
+        //    }
+        //    else
+        //    {
+        //        var dist = range;
+        //        Draw2DRay(dist);
+        //    }
+        //}
     }
 
     void Draw2DRay(float distance)

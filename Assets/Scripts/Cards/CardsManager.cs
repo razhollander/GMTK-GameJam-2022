@@ -16,15 +16,13 @@ public class CardsManager : MonoBehaviour
     [SerializeField] private Vector2 minMaxGameEventDuration = new Vector2(10, 15);
     
     private GameEvent _chosenGameEvent;
-    
-    
+    private Coroutine _coroutine;
+
     [ContextMenu("Fire")]
     public async void GenerateRandomCard()
     {
         cardGO.SetActive(true);
-        await RunCardRandom();
-        GameManager.Instance.GameEventsSystem.FireGameEvent(_chosenGameEvent);
-        StartCoroutine(StartTimer());
+        _coroutine = StartCoroutine(RunCardRandom());
     }
 
   
@@ -42,7 +40,7 @@ public class CardsManager : MonoBehaviour
         GenerateRandomCard();
     }
 
-    private async UniTask RunCardRandom()
+    private IEnumerator RunCardRandom()
     {
         var numOfGameEvents = Enum.GetValues(typeof(GameEvent)).Length;
 
@@ -59,10 +57,12 @@ public class CardsManager : MonoBehaviour
                 newGameEvent = (GameEvent)rnd;
             }
             cardImage.sprite = _cards.Find(x => x.CardGameEvent == newGameEvent).CardImage;
-            await UniTask.Delay(cardAnimationSpeedMilliSeconds);
+            yield return new WaitForSeconds(((float)cardAnimationSpeedMilliSeconds)/1000);
         }
 
         _chosenGameEvent = newGameEvent;
+        GameManager.Instance.GameEventsSystem.FireGameEvent(_chosenGameEvent);
+        StartCoroutine(StartTimer());
     }
 
 

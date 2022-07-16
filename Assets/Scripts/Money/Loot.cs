@@ -46,6 +46,7 @@ public class Loot : MonoBehaviour
     {
         if (other.CompareTag("Player") && !isGiveAlready)
         {
+            Debug.Log("Add money "+_moneyAmount);
             isGiveAlready = true;
             GameManager.Instance.MoneyManager.AddMoney(_moneyAmount);
             DoEffect();
