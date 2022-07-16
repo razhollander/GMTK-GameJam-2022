@@ -351,7 +351,7 @@ MonoBehaviour:
   MoveDirectionY: 0
   Speed: 15
   roll_speed: 3
-  roll_time: 0
+  roll_time: 1
   rolling: 0
 --- !u!1001 &5475217411723200338
 PrefabInstance:

@@ -383,7 +383,7 @@ Transform:
   - {fileID: 7519741567476486104}
   - {fileID: 5271770983460129622}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1314640774260883341
 MonoBehaviour:
@@ -402,4 +402,4 @@ MonoBehaviour:
   body: {fileID: 7519741567476486104}
   speed: 10
   returning: 0
-  movment_interval: 2
+  movment_interval: 3
