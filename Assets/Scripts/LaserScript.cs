@@ -12,12 +12,13 @@ public class LaserScript : MonoBehaviour
     public float range;
     private int playerLayer;
     private int enviormentLayer;
+    private int laserLayer;
 
     void Start()
     {
         playerLayer = LayerMask.GetMask("Player");
         enviormentLayer=LayerMask.GetMask("enviorment collider");
-        
+        laserLayer=LayerMask.GetMask("Laser");
     }
 
     // Update is called once per frame
@@ -37,10 +38,9 @@ public class LaserScript : MonoBehaviour
         }
         else
         {
-            var hit = Physics2D.Raycast(startPos.position, dir, range, enviormentLayer);
+            var hit = Physics2D.Raycast(startPos.position, dir, range, enviormentLayer|laserLayer);
             if (hit.collider!=null)
             {
-            Debug.Log(hit.collider.gameObject.name);
                 var dist = Vector3.Distance(hit.point, startPos.position);
                 Draw2DRay(dist);
             }
