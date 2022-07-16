@@ -1962,7 +1962,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1204604616, guid: ba071f9d17db3af48abb97a07d93dab0, type: 3}
       propertyPath: Speed
-      value: 20
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 1204604616, guid: ba071f9d17db3af48abb97a07d93dab0, type: 3}
       propertyPath: roll_speed
