@@ -21,7 +21,6 @@ public enum GameEvent
 {
     Flood = 0,
     Electricity = 1,
-    Lockdown = 2,
-    Alarm = 3,
-    Freeze = 4
+    Alarm = 2,
+    Freeze = 3
 }

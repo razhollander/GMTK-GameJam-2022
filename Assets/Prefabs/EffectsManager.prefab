@@ -51,6 +51,11 @@ MonoBehaviour:
   _alarmAnimationBounds: {x: 0.224, y: 0.336}
   _alarmAnimationTime: 2
   _water: {fileID: 7647971008597784529}
+  _playerBubble: {fileID: 0}
+  _lightingFlashEffect: {fileID: 0}
+  _globalLight: {fileID: 0}
+  _playerLight: {fileID: 0}
+  _globalLightOffIntensity: 0
 --- !u!1001 &2720391735954893057
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -65,7 +70,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5756665485543022288, guid: f49dad71c7e0e44bd88f48be871e63d7, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7375025126923642366, guid: f49dad71c7e0e44bd88f48be871e63d7, type: 3}
       propertyPath: m_RootOrder
@@ -73,11 +78,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7375025126923642366, guid: f49dad71c7e0e44bd88f48be871e63d7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 21.4
       objectReference: {fileID: 0}
     - target: {fileID: 7375025126923642366, guid: f49dad71c7e0e44bd88f48be871e63d7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 15.9
       objectReference: {fileID: 0}
     - target: {fileID: 7375025126923642366, guid: f49dad71c7e0e44bd88f48be871e63d7, type: 3}
       propertyPath: m_LocalPosition.z

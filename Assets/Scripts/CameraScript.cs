@@ -26,7 +26,6 @@ public class CameraScript : MonoBehaviour
     private void LerpLightToNextCurrPoint()
     {
         var currPos = _chosenPath.transform.TransformPoint(_chosenPath.GetPosition(currPointIndex));
-        Debug.Log(currPos.ToString());
         light_spot.transform.position = Vector3.Lerp(light_spot.transform.position, currPos, lightSpeed * Time.deltaTime);
 
         if (Vector3.Distance(light_spot.transform.position, currPos) < minDist)

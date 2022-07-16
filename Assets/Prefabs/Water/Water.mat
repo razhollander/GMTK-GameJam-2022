@@ -77,4 +77,5 @@ Material:
     - _Flip: {r: 1, g: 1, b: 1, a: 1}
     - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
     - _RippleColor: {r: 0.3455497, g: 0.9482751, b: 2, a: 0}
+    - _Tiling: {r: 7, g: 7, b: 0, a: 0}
   m_BuildTextureStacks: []
