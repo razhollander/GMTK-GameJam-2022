@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2301635630591478795}
   - component: {fileID: 6705513429587762502}
   m_Layer: 0
-  m_Name: SquarePath (1)
+  m_Name: SquarePath 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -671,7 +671,7 @@ GameObject:
   - component: {fileID: 6425963275052748055}
   - component: {fileID: 6080114127858237818}
   m_Layer: 0
-  m_Name: SquarePath (1)
+  m_Name: SquarePath 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
