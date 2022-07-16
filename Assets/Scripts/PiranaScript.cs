@@ -78,7 +78,7 @@ public class PiranaScript : GaneEventListener
     {
         Vector3 diff = pos.position - body.position;
         diff.Normalize();
-        if (diff.x > 0)
+        if (diff.x > 0.02)
         {
             renderer.gameObject.transform.localScale = new Vector3(.1f, .1f, .1f);
         }
