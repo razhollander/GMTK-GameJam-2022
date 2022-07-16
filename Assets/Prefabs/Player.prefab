@@ -350,8 +350,8 @@ MonoBehaviour:
   MoveDirectionX: 0
   MoveDirectionY: 0
   _anim: {fileID: 1204604615}
-  Speed: 40
-  roll_speed: 10
+  Speed: 30
+  roll_speed: 5
   roll_time: 0.5
   rolling: 0
   slideCooldownInSeconds: 1
