@@ -108,6 +108,7 @@ MonoBehaviour:
   _smallAmount: 100
   _mediumAmount: 500
   _bigAmount: 1000
+  _collider: {fileID: 5487339027062625901}
 --- !u!58 &5487339027062625901
 CircleCollider2D:
   m_ObjectHideFlags: 0
