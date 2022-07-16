@@ -2602,6 +2602,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Loot (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 1498899565623455906, guid: 3b994fa049ad14ad7aafdffac52295e7, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1498899565623455907, guid: 3b994fa049ad14ad7aafdffac52295e7, type: 3}
       propertyPath: _moneyAmount
       value: 500
@@ -2738,6 +2742,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Loot
       objectReference: {fileID: 0}
+    - target: {fileID: 1498899565623455906, guid: 3b994fa049ad14ad7aafdffac52295e7, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1498899565623455907, guid: 3b994fa049ad14ad7aafdffac52295e7, type: 3}
       propertyPath: _moneyAmount
       value: 500
@@ -2873,6 +2881,10 @@ PrefabInstance:
     - target: {fileID: 1498899565623455906, guid: 3b994fa049ad14ad7aafdffac52295e7, type: 3}
       propertyPath: m_Name
       value: Loot (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1498899565623455906, guid: 3b994fa049ad14ad7aafdffac52295e7, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1498899565623455907, guid: 3b994fa049ad14ad7aafdffac52295e7, type: 3}
       propertyPath: _moneyAmount

@@ -22,19 +22,19 @@ public class Loot : MonoBehaviour
     private bool isGiveAlready = false;
     private void Awake()
     {
-        if (_moneyAmount <= _smallAmount)
+        if (_moneyAmount < _mediumAmount)
         {
             _image.sprite = SmallLootImage;
         }
         else
         {
-            if (_moneyAmount <= _mediumAmount)
+            if (_moneyAmount < _bigAmount)
             {
                 _image.sprite = MediumLootImage;
             }
             else
             {
-                if (_moneyAmount <= _bigAmount)
+                if (_moneyAmount >= _bigAmount)
                 {
                     _image.sprite = BigLootImage;
                 }
@@ -46,6 +46,7 @@ public class Loot : MonoBehaviour
     {
         if (other.CompareTag("Player") && !isGiveAlready)
         {
+            Debug.Log("Add money "+_moneyAmount);
             isGiveAlready = true;
             GameManager.Instance.MoneyManager.AddMoney(_moneyAmount);
             DoEffect();

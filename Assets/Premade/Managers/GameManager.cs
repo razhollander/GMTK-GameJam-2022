@@ -14,7 +14,7 @@ public class GameManager : MonoBehaviour
     public CardsManager CardManager;
     public Canvas canvas;
     [SerializeField] public MoneyManager MoneyManager;
-    
+    private bool isFlagGameOver = false;
     float _prevTimeScale = 1;
 
     private void Awake()
@@ -64,12 +64,18 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1;
         Pool.pools = new Dictionary<PooledMonobehaviour, Pool>();
         SceneManager.LoadScene(SAMPLE_SCENE_NAME);
+        Debug.Log("Restart");
     }
 
     public void GameOver()
     {
-        Time.timeScale = 0;
-        canvas.GetComponent<Animator>().SetBool("GameOver", true);
+        if (!isFlagGameOver)
+        {
+            isFlagGameOver = true;
+            Debug.Log("GameOver");
+            Time.timeScale = 0;
+            canvas.GetComponent<Animator>().SetBool("GameOver", true);
+        }
     }
 
     public void Quit()

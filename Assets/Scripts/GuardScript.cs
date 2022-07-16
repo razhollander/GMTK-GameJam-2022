@@ -5,7 +5,7 @@ using UnityEngine;
 public class GuardScript : GaneEventListener
 {
     // Start is called before the first frame update
-    int playerLayer;
+    int environmentLayer;
     int laserLayer;
 
     [SerializeField] float range;
@@ -19,7 +19,6 @@ public class GuardScript : GaneEventListener
     public bool returning = false;
     SpriteRenderer renderer;
     [SerializeField] private Transform flashLight;
-    
     public override void OnGameEvent(GameEvent gameEvent)
     {
         move_speed = initial_speed;
@@ -39,7 +38,7 @@ public class GuardScript : GaneEventListener
     void Awake()
     {
         initial_speed = move_speed;
-        playerLayer = LayerMask.GetMask("Player");
+        environmentLayer = LayerMask.GetMask("enviorment collider");
         laserLayer = LayerMask.GetMask("Laser");
         rb = GetComponentInChildren<Rigidbody2D>();
         light = GetComponentInChildren<UnityEngine.Rendering.Universal.Light2D>();
@@ -50,9 +49,9 @@ public class GuardScript : GaneEventListener
     {
         Debug.DrawRay(transform.position, flashLight.up * range, Color.red, 1000);
 
-        var hit = Physics2D.Raycast(flashLight.position, flashLight.up, range, playerLayer | laserLayer);
-        
-        if (hit.collider != null && hit.collider.gameObject.CompareTag("Player"))
+        var hit = Physics2D.Raycast(flashLight.position, flashLight.up, range, environmentLayer | laserLayer);
+
+        if (hit.collider != null && hit.collider.gameObject.CompareTag("Player") )
         {
             light.color = Color.red;
             GameManager.Instance.GameOver();
