@@ -4,25 +4,14 @@ using UnityEngine;
 
 public class EnemyPlacer : MonoBehaviour
 {
-    public List<Enemy> _enemiesCanBePlaced;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public List<Enemy> EnemiesCanBePlaced;
 }
 
 public enum Enemy
 {
-    Pirana,
-    Gourd,
-    Camera,
-    Spike,
-    Dog
+    Piranha = 0,
+    Guard = 1,
+    Projector = 2,
+    Spike = 3,
+    Dog = 4
 }
