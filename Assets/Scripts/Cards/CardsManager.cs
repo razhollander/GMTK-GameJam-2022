@@ -27,6 +27,7 @@ public class CardsManager : MonoBehaviour
         StartCoroutine(StartTimer());
     }
 
+  
     private IEnumerator StartTimer()
     {
         var duration = Random.Range(minMaxGameEventDuration.x, minMaxGameEventDuration.y+1);
@@ -62,7 +63,8 @@ public class CardsManager : MonoBehaviour
             await UniTask.Delay(cardAnimationSpeedMilliSeconds);
         }
 
-        _chosenGameEvent = newGameEvent;
+        _chosenGameEvent = GameEvent.Flood;
+        //_chosenGameEvent = newGameEvent;
         Debug.Log("Chosen: "+_chosenGameEvent);
     }
 

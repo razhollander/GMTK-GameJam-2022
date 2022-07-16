@@ -32,7 +32,7 @@ public class GuardScript : GaneEventListener
     }
 
 
-    void Start()
+    void Awake()
     {
         initial_speed = move_speed;
         layer = LayerMask.GetMask("Player");

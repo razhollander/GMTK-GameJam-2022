@@ -8,25 +8,33 @@ public class PiranaScript : GaneEventListener
     public Transform start_point;
     public Transform body;
     public int speed;
+    int init_speed;
     Rigidbody2D rb;
     public bool returning = false;
     SpriteRenderer renderer;
     bool is_free = false;
-    public float movment_interval = 3;
+    public float movment_interval = 2;
     Vector2 rand_dir;
     public override void OnGameEvent(GameEvent gameEvent)
     {
+
+        speed = init_speed;
+        body.position = transform.position;
+        rb.velocity = new Vector3(0, 0, 0);
         is_free = false;
         if (gameEvent == GameEvent.Flood)
         {
+            speed /= 2;
             is_free = true;
         }
     }
 
-    void Start()
+    void Awake()
     {
         rb = GetComponentInChildren<Rigidbody2D>();
         renderer = GetComponentInChildren<SpriteRenderer>();
+        StartCoroutine( RandMove());
+        init_speed = speed;
     }
 
     void Update()
@@ -101,8 +109,10 @@ public class PiranaScript : GaneEventListener
     IEnumerator RandMove()
     {
         yield return new WaitForSeconds(movment_interval);
-        rand_dir.x = Random.Range(0f, 1f);
-        rand_dir.y = Random.Range(0f, 1f);
+        rand_dir.x = Random.Range(-1f, 1f);
+        rand_dir.y = Random.Range(-1f, 1f);
+        rb.velocity = new Vector3(0,0,0);
+        StartCoroutine(RandMove());
     }
 
 }
