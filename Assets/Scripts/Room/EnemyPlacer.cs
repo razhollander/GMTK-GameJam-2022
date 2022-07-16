@@ -9,9 +9,9 @@ public class EnemyPlacer : MonoBehaviour
 
 public enum Enemy
 {
-    Piranha,
-    Guard,
-    Camera,
-    Spike,
-    Dog
+    Piranha = 0,
+    Guard = 1,
+    Projector = 2,
+    Spike = 3,
+    Dog = 4
 }
