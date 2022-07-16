@@ -10,12 +10,12 @@ public class GuardScript : GaneEventListener
     UnityEngine.Rendering.Universal.Light2D light;
     public Transform end_point;
     public Transform guard_body;
+    public Transform start_point;
     public int move_speed;
     int initial_speed;
     Rigidbody2D rb;
     public bool returning = false;
-    bool start = false;
-
+    SpriteRenderer renderer;
     public override void OnGameEvent(GameEvent gameEvent)
     {
         move_speed = initial_speed;
@@ -38,6 +38,7 @@ public class GuardScript : GaneEventListener
         layer = LayerMask.GetMask("Player");
         rb = GetComponentInChildren<Rigidbody2D>();
         light = GetComponentInChildren<UnityEngine.Rendering.Universal.Light2D>();
+        renderer = GetComponentInChildren<SpriteRenderer>();
     }
 
     void Update()
@@ -59,7 +60,7 @@ public class GuardScript : GaneEventListener
     {
         if (!returning)
         {
-            Vector3 direction = end_point.position - transform.position;
+            Vector3 direction = end_point.position - start_point.position;
 
             direction = direction.normalized;
 
@@ -70,28 +71,29 @@ public class GuardScript : GaneEventListener
 
         else
         {
-            Vector3 direction = transform.position - end_point.position;
+            Vector3 direction = start_point.position - end_point.position;
 
             direction = direction.normalized;
 
             Vector3 velocity = direction * move_speed;
             rb.AddForce(velocity, ForceMode2D.Force);
-            Look(transform);
+            Look(start_point);
         }
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {   
-        returning = false; 
     }
 
     void Look(Transform pos)
     {
         Vector3 diff = pos.position - guard_body.position;
         diff.Normalize();
+        if (diff.x > 0)
+        {
+            renderer.gameObject.transform.localScale = new Vector3(-1, 1, 1);
+        }
 
-        float rot_z = Mathf.Atan2(diff.y, diff.x) * Mathf.Rad2Deg;
-        guard_body.rotation = Quaternion.Euler(0f, 0f, rot_z - 90f);
+        else
+        {
+            renderer.gameObject.transform.localScale = new Vector3(1, 1, 1);
+        }
     }
 
 }
