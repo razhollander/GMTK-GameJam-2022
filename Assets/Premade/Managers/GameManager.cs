@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance;
     public CameraManager CameraManager;
     public GameEventsSystem GameEventsSystem;
+    [SerializeField] public MoneyManager MoneyManager;
     
     float _prevTimeScale = 1;
 
