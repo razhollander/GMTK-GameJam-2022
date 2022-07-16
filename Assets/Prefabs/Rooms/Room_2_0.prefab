@@ -688,7 +688,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2816455887720844743
 RectTransform:
   m_ObjectHideFlags: 0
@@ -721,7 +721,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e53d19702f4164dd1a30ff2e17264377, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnemyInTemplate: 0
+  EnemyInTemplate: 3
 --- !u!1 &2816455887772659420
 GameObject:
   m_ObjectHideFlags: 0
@@ -6172,7 +6172,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0}
-    oldSize: {x: 13.2, y: 13.26}
+    oldSize: {x: 13.208202, y: 13.259999}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
