@@ -6,11 +6,14 @@ public class GuardEndPoint : MonoBehaviour
 {
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (GetComponentInParent<GuardScript>())
+        var guard = GetComponentInParent<GuardScript>();
+
+        if (guard != null)
         {
-            Debug.Log("TURN");
-            GetComponentInParent<GuardScript>().returning = true;
+            //if (guard.transform == transform.parent)
+            //{
+                guard.returning = true;
+            //}
         }
-        
     }
 }
