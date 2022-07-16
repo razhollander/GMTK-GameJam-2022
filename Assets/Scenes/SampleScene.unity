@@ -370,6 +370,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 8566515161832254646, guid: 0301deef950554fa69da85d9672782bd, type: 3}
   m_PrefabInstance: {fileID: 445641240}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &445641242 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5462595728672135290, guid: 0301deef950554fa69da85d9672782bd, type: 3}
+  m_PrefabInstance: {fileID: 445641240}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b616b04e5fa44874b28783a02fef9e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &493067535
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -792,7 +803,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.7269, y: 1.7917299, z: -10}
+  m_LocalPosition: {x: 3.7269, y: 1.79174, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1433,7 +1444,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1171295620}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -8.7269, y: 0.008270025, z: 0}
+  m_LocalPosition: {x: -8.7269, y: 0.008260012, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1743,6 +1754,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d998878860abc2d43b2d41232b9c7749, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CardManager: {fileID: 445641242}
   MoneyManager: {fileID: 1648278042}
 --- !u!4 &1421530198
 Transform:
