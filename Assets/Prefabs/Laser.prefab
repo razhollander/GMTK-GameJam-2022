@@ -76,7 +76,7 @@ LineRenderer:
   m_SortingOrder: 2
   m_Positions:
   - {x: 0, y: 0, z: 0}
-  - {x: -15, y: 0, z: 1}
+  - {x: -50, y: 0, z: 1}
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 1
@@ -316,8 +316,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lr: {fileID: 2174224252547201970}
+  laserHead: {fileID: 9141011739127240388}
   startPos: {fileID: 9141011738618255254}
-  range: 10
+  range: 50
 --- !u!1 &9141011739127240389
 GameObject:
   m_ObjectHideFlags: 0
