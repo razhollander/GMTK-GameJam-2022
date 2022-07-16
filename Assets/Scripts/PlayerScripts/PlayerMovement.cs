@@ -15,8 +15,10 @@ public class PlayerMovement : MonoBehaviour
     private int Speed;
     [SerializeField]
     private int roll_speed;
-    private float roll_time;
+    [SerializeField] private float roll_time;
     //private Animator animator;
+
+    public bool rolling = false;
 
     private bool can_dash = true;
     void Start()
@@ -26,7 +28,6 @@ public class PlayerMovement : MonoBehaviour
     }
     private void Update()
     {
-        
         Move();
     }
 
@@ -51,7 +52,9 @@ public class PlayerMovement : MonoBehaviour
 
     IEnumerator start_dash()
     {
+        rolling = true;
         yield return new WaitForSeconds(roll_time);
         can_dash = true;
+        rolling = false;
     }
 }

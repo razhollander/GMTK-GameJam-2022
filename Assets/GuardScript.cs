@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GuardScript : MonoBehaviour
+public class GuardScript : GaneEventListener
 {
     // Start is called before the first frame update
     int layer;
@@ -11,11 +11,30 @@ public class GuardScript : MonoBehaviour
     public Transform end_point;
     public Transform guard_body;
     public int move_speed;
+    int initial_speed;
     Rigidbody2D rb;
     public bool returning = false;
     bool start = false;
+
+    public override void OnGameEvent(GameEvent gameEvent)
+    {
+        move_speed = initial_speed;
+
+        if (gameEvent == GameEvent.Alarm)
+        {
+            move_speed *= 2;
+        }
+
+        else if (gameEvent == GameEvent.Flood)
+        {
+            move_speed /= 2;
+        }
+    }
+
+
     void Start()
     {
+        initial_speed = move_speed;
         layer = LayerMask.GetMask("Player");
         rb = GetComponentInChildren<Rigidbody2D>();
         light = GetComponentInChildren<UnityEngine.Rendering.Universal.Light2D>();
