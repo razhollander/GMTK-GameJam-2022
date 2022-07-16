@@ -13,16 +13,22 @@ public class SoundManager : GaneEventListener
         if (gameEvent == GameEvent.Alarm)
         {
             alarm_sound.Play();
+            elec_sound.Stop();
+            flood_sound.Stop();
         }
 
         else if (gameEvent == GameEvent.Flood)
         {
+            alarm_sound.Stop();
+            elec_sound.Stop();
             flood_sound.Play();
         }
 
         else if (gameEvent == GameEvent.Electricity)
         {
+            alarm_sound.Stop();
             elec_sound.Play();
+            flood_sound.Stop();
         }
     }
 
