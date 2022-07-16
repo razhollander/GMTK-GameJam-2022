@@ -218,7 +218,7 @@ Transform:
   - {fileID: 6894742982559722277}
   - {fileID: 4800446548010731640}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1054460757
 MonoBehaviour:
@@ -238,6 +238,7 @@ MonoBehaviour:
   start_point: {fileID: 4800446548010731640}
   move_speed: 10
   returning: 0
+  flashLight: {fileID: 1398415716488195599}
 --- !u!1 &8549741694088274233
 GameObject:
   m_ObjectHideFlags: 0
