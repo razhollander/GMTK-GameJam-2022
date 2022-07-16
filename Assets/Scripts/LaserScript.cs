@@ -2,29 +2,48 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LaserScript : MonoBehaviour
+public class LaserScript : GaneEventListener
 {
     [SerializeField] LineRenderer lr;
     [SerializeField] Transform laserHead;
-
+    [SerializeField] private Animator _anim;
     public Transform startPos;
     Vector2 dir = Vector2.left;
     public float range;
     private int playerLayer;
     private int enviormentLayer;
     private int laserLayer;
-
-    void Start()
+    private bool _isElectricityOn = true;
+    void Awake()
     {
         playerLayer = LayerMask.GetMask("Player");
         enviormentLayer=LayerMask.GetMask("enviorment collider");
         laserLayer=LayerMask.GetMask("Laser");
     }
 
+    public override void OnGameEvent(GameEvent gameEvent)
+    {
+        if (gameEvent == GameEvent.Electricity)
+        {
+            _isElectricityOn = false;
+            _anim.enabled = false;
+            lr.gameObject.SetActive(false);
+        }
+        else
+        {
+            _isElectricityOn = true;
+            _anim.enabled = true;
+            lr.gameObject.SetActive(true);
+        }
+    }
+
     // Update is called once per frame
     void Update()
     {
-        ShootLaser();
+        if (_isElectricityOn)
+        {
+            ShootLaser();
+        }
     }
 
     void ShootLaser()
@@ -43,58 +62,6 @@ public class LaserScript : MonoBehaviour
                 GameManager.Instance.GameOver();
             }
         }
-        //var hit = Physics2D.Raycast(startPos.position, dir, range, enviormentLayer);
-        //var envCollider =
-        //if (hit.collider!=null)
-        //{
-        //    var envCollider =
-        //        dist = Vector3.Distance(hit.point, startPos.position);
-        //}
-        //
-        //hit = Physics2D.Raycast(startPos.position, dir, range, laserLayer);
-        //if(
-//
-        //    if (hit.collider != null)
-        //    {
-        //        dist = Vector3.Distance(hit.point, startPos.position);
-        //        Draw2DRay(dist);
-//
-        //        if (hit.collider.tag == "Player")
-        //        {
-        //            GameManager.Instance.GameOver();
-        //        }
-        //    }
-        //    else
-        //    {
-        //        dist=range;
-        //    }
-        //}
-        //Draw2DRay(dist);
-        
-
-        //var hitPlayer = Physics2D.Raycast(startPos.position, dir, range, playerLayer);
-
-
-        //if ( hitPlayer.collider!=null)
-        //{
-        //    var dist = Vector3.Distance(hitPlayer.point, startPos.position);
-        //    Draw2DRay(dist);
-        //    GameManager.Instance.GameOver();
-        //}
-        //else
-        //{
-        //    var hit = Physics2D.Raycast(startPos.position, dir, range, enviormentLayer|laserLayer);
-        //    if (hit.collider!=null)
-        //    {
-        //        var dist = Vector3.Distance(hit.point, startPos.position);
-        //        Draw2DRay(dist);
-        //    }
-        //    else
-        //    {
-        //        var dist = range;
-        //        Draw2DRay(dist);
-        //    }
-        //}
     }
 
     void Draw2DRay(float distance)
