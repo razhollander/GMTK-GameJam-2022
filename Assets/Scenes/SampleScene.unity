@@ -587,6 +587,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: ed532b61860420948a0d7a6a623a8eae, type: 2}
     - target: {fileID: 6832406670005555995, guid: 9fec08911053d48e1bef8e2c5058f3a9, type: 3}
+      propertyPath: _playerBubble
+      value: 
+      objectReference: {fileID: 1287506377}
+    - target: {fileID: 6832406670005555995, guid: 9fec08911053d48e1bef8e2c5058f3a9, type: 3}
       propertyPath: _alarmAnimationTime
       value: 1
       objectReference: {fileID: 0}
@@ -1069,6 +1073,11 @@ PrefabInstance:
 --- !u!4 &1204604620 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3133181712784329688, guid: ba071f9d17db3af48abb97a07d93dab0, type: 3}
+  m_PrefabInstance: {fileID: 1204604613}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1287506377 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5476167200718807858, guid: ba071f9d17db3af48abb97a07d93dab0, type: 3}
   m_PrefabInstance: {fileID: 1204604613}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1421530196
