@@ -215,7 +215,7 @@ MonoBehaviour:
   lr: {fileID: 2174224252547201970}
   laserHead: {fileID: 9141011739127240388}
   startPos: {fileID: 9141011738618255254}
-  range: 5
+  range: 50
 --- !u!95 &18604187157905555
 Animator:
   serializedVersion: 4
