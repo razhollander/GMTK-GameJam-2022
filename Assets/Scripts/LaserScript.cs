@@ -5,17 +5,20 @@ using UnityEngine;
 public class LaserScript : MonoBehaviour
 {
     [SerializeField] LineRenderer lr;
+    [SerializeField] Transform laserHead;
+
     public Transform startPos;
     Vector2 dir = Vector2.left;
     public float range;
     private int playerLayer;
     private int enviormentLayer;
+    private int laserLayer;
 
     void Start()
     {
         playerLayer = LayerMask.GetMask("Player");
         enviormentLayer=LayerMask.GetMask("enviorment collider");
-        
+        laserLayer=LayerMask.GetMask("Laser");
     }
 
     // Update is called once per frame
@@ -26,28 +29,32 @@ public class LaserScript : MonoBehaviour
 
     void ShootLaser()
     {
-        if ( Physics2D.Raycast(startPos.position, dir, range, playerLayer))
+        dir = -laserHead.right;
+        var hitPlayer = Physics2D.Raycast(startPos.position, dir, range, playerLayer);
+        if ( hitPlayer.collider!=null)
         {
-            RaycastHit2D hit = Physics2D.Raycast(startPos.position, dir, range, playerLayer);
-            Draw2DRay(startPos.position, hit.point);
+            var dist = Vector3.Distance(hitPlayer.point, startPos.position);
+            Draw2DRay(dist);
         }
         else
         {
-            if (Physics2D.Raycast(startPos.position, dir, range, enviormentLayer))
+            var hit = Physics2D.Raycast(startPos.position, dir, range, enviormentLayer|laserLayer);
+            if (hit.collider!=null)
             {
-                RaycastHit2D hit = Physics2D.Raycast(startPos.position, dir, range, playerLayer);
-                Draw2DRay(startPos.position, hit.point);
+                var dist = Vector3.Distance(hit.point, startPos.position);
+                Draw2DRay(dist);
             }
             else
             {
-                Draw2DRay(startPos.position, dir * range);
+                var dist = range;
+                Draw2DRay(dist);
             }
         }
     }
 
-    void Draw2DRay(Vector2 startpos, Vector2 endpos)
+    void Draw2DRay(float distance)
     {
-        lr.SetPosition(0, startpos);
-        lr.SetPosition(1, endpos);
+        lr.SetPosition(0, Vector2.zero);
+        lr.SetPosition(1, distance*Vector2.left);
     }
 }
