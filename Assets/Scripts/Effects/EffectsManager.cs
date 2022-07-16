@@ -11,7 +11,8 @@ public class EffectsManager : GaneEventListener
     [SerializeField] private VolumeProfile VolumeProfile;
     [SerializeField] private Vector2 _alarmAnimationBounds = new Vector2(0.224f, 0.336f);
     [SerializeField] private float _alarmAnimationTime = 2;
-
+    [SerializeField] private GameObject _water;
+    
     private Tween alarmAnimationTween;
     
     public override void OnGameEvent(GameEvent gameEvent)
@@ -32,6 +33,9 @@ public class EffectsManager : GaneEventListener
                 vignette.intensity.Override(_alarmAnimationBounds.x);
                 alarmAnimationTween = DOTween.To(() => vignette.intensity.value, value => vignette.intensity.Override(value), _alarmAnimationBounds.y, _alarmAnimationTime)
                     .SetLoops(-1, LoopType.Yoyo).SetEase(Ease.InQuart); break;
+            
+            case GameEvent.Flood:
+                _water.SetActive(true); break;
                 default: break;
         }
     }
@@ -47,14 +51,24 @@ public class EffectsManager : GaneEventListener
     {
         OnGameEvent(GameEvent.Freeze);
     }
+    
+    [ContextMenu("fire Flood effect")]
+    public void FireWater()
+    {
+        OnGameEvent(GameEvent.Flood);
+    }
     private void StopAll()
     {
         _snowEffect.gameObject.SetActive(false);
         _snowEffect.Stop();
+        
         alarmAnimationTween.Kill();
+        
         Vignette vignette;
         if(!VolumeProfile.TryGet(out vignette)) throw new System.NullReferenceException(nameof(vignette));
         vignette.active = false;
+        
+        _water.SetActive(false);
     }
     
     
