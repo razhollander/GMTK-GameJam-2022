@@ -4,16 +4,18 @@ using UnityEngine;
 
 public class LaserScript : MonoBehaviour
 {
-    LineRenderer lr;
+    [SerializeField] LineRenderer lr;
     public Transform startPos;
-    public Transform room;
     Vector2 dir = Vector2.left;
     public float range;
-    private int layer;
+    private int playerLayer;
+    private int enviormentLayer;
+
     void Start()
     {
-        lr = GetComponent<LineRenderer>();
-        layer = LayerMask.GetMask("Player");
+        playerLayer = LayerMask.GetMask("Player");
+        enviormentLayer=LayerMask.GetMask("enviorment collider");
+        
     }
 
     // Update is called once per frame
@@ -24,14 +26,22 @@ public class LaserScript : MonoBehaviour
 
     void ShootLaser()
     {
-        if ( Physics2D.Raycast(startPos.position, dir, range, layer))
+        if ( Physics2D.Raycast(startPos.position, dir, range, playerLayer))
         {
-            RaycastHit2D hit = Physics2D.Raycast(startPos.position, dir, range, layer);
+            RaycastHit2D hit = Physics2D.Raycast(startPos.position, dir, range, playerLayer);
             Draw2DRay(startPos.position, hit.point);
         }
         else
         {
-            Draw2DRay(startPos.position, dir * range);
+            if (Physics2D.Raycast(startPos.position, dir, range, enviormentLayer))
+            {
+                RaycastHit2D hit = Physics2D.Raycast(startPos.position, dir, range, playerLayer);
+                Draw2DRay(startPos.position, hit.point);
+            }
+            else
+            {
+                Draw2DRay(startPos.position, dir * range);
+            }
         }
     }
 
