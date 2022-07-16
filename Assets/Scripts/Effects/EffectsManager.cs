@@ -12,6 +12,7 @@ public class EffectsManager : GaneEventListener
     [SerializeField] private Vector2 _alarmAnimationBounds = new Vector2(0.224f, 0.336f);
     [SerializeField] private float _alarmAnimationTime = 2;
     [SerializeField] private GameObject _water;
+    [SerializeField] private GameObject _playerBubble;
     
     private Tween alarmAnimationTween;
     
@@ -35,7 +36,9 @@ public class EffectsManager : GaneEventListener
                     .SetLoops(-1, LoopType.Yoyo).SetEase(Ease.InQuart); break;
             
             case GameEvent.Flood:
-                _water.SetActive(true); break;
+                _water.SetActive(true);
+                _playerBubble.SetActive(true);
+                break;
                 default: break;
         }
     }
@@ -69,8 +72,6 @@ public class EffectsManager : GaneEventListener
         vignette.active = false;
         
         _water.SetActive(false);
+        _playerBubble.SetActive(false);
     }
-    
-    
-    
 }
