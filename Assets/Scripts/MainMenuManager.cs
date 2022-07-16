@@ -5,19 +5,23 @@ using UnityEngine.SceneManagement;
 
 public class MainMenuManager : MonoBehaviour
 {
-    // Start is called before the first frame update
+    Animator animator;
     void Start()
     {
-        
+        animator = GetComponent<Animator>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         
     }
 
-    public void StartGame()
+    public void StartAnimation()
+    {
+        animator.SetBool("Start", true);
+    }
+
+    public void StartGame() // set by animation
     {
         UnityEngine.SceneManagement.SceneManager.LoadScene("SampleScene");
     }
