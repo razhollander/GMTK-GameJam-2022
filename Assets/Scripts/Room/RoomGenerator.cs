@@ -9,6 +9,7 @@ public class RoomGenerator : MonoBehaviour
 {
     [SerializeField] private Room _room;
     [SerializeField] private Vector2Int _numOfRooms = new Vector2Int(3,3);
+    [SerializeField] private float minusDelta =0.7f;
     
     [ContextMenu("Generate rooms")]
     public void GenerateRooms()
@@ -23,7 +24,9 @@ public class RoomGenerator : MonoBehaviour
             {
                 var room = Instantiate(_room.gameObject, roomsParent.transform);
                 room.GetComponent<Room>().Id = new Vector2Int(i, j);
-                room.transform.localPosition = new Vector3(i * roomSize, j * roomSize);
+                room.name = "Room_" + room.GetComponent<Room>().Id.x+"_"+room.GetComponent<Room>().Id.y;
+                room.transform.localPosition = new Vector3(i * roomSize - (i*minusDelta), j * roomSize - (j*minusDelta));
+                room.GetComponent<Room>().SetWalls();
             }
         }
     }
