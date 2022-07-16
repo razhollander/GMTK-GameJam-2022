@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: PlayerSlide
+  m_Name: DogIdle
   serializedVersion: 7
   m_Legacy: 0
   m_Compressed: 0
@@ -20,7 +20,7 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: 21300000, guid: 592b9d3e376594dddaad81206f0299e3, type: 3}
+      value: {fileID: 21300000, guid: 4df476b5c6f174747b1a6bffbae56d0b, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -41,7 +41,7 @@ AnimationClip:
       isPPtrCurve: 1
       isIntCurve: 0
     pptrCurveMapping:
-    - {fileID: 21300000, guid: 592b9d3e376594dddaad81206f0299e3, type: 3}
+    - {fileID: 21300000, guid: 4df476b5c6f174747b1a6bffbae56d0b, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
