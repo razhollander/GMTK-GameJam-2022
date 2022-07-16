@@ -15,17 +15,22 @@ public class PiranaScript : GaneEventListener
     bool is_free = false;
     public float movment_interval = 2;
     Vector2 rand_dir;
+    bool flooded = false;
     public override void OnGameEvent(GameEvent gameEvent)
     {
-
-        speed = init_speed;
-        body.position = transform.position;
-        rb.velocity = new Vector3(0, 0, 0);
-        is_free = false;
+        if (flooded)
+        {
+            speed = init_speed;
+            body.position = transform.position;
+            rb.velocity = new Vector3(0, 0, 0);
+            is_free = false;
+            flooded = false;
+        }    
         if (gameEvent == GameEvent.Flood)
         {
             speed /= 2;
             is_free = true;
+            flooded = true;
         }
     }
 
