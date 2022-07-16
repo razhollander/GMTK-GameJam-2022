@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: AlarmCard
   m_EditorClassIdentifier: 
   CardImage: {fileID: 21300000, guid: 914c3ee9c193848e0b6a2df41b19e51f, type: 3}
-  CardGameEvent: 3
+  CardGameEvent: 2

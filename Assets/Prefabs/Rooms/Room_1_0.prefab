@@ -12007,17 +12007,21 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 7259600972493789241}
     m_Modifications:
+    - target: {fileID: 9141011739072452552, guid: 785faa94276f7d84fab0e9c7cb51e70e, type: 3}
+      propertyPath: range
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 9141011739072452553, guid: 785faa94276f7d84fab0e9c7cb51e70e, type: 3}
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9141011739072452553, guid: 785faa94276f7d84fab0e9c7cb51e70e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 8.99
       objectReference: {fileID: 0}
     - target: {fileID: 9141011739072452553, guid: 785faa94276f7d84fab0e9c7cb51e70e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -8.99
       objectReference: {fileID: 0}
     - target: {fileID: 9141011739072452553, guid: 785faa94276f7d84fab0e9c7cb51e70e, type: 3}
       propertyPath: m_LocalPosition.z
@@ -12054,6 +12058,14 @@ PrefabInstance:
     - target: {fileID: 9141011739072452555, guid: 785faa94276f7d84fab0e9c7cb51e70e, type: 3}
       propertyPath: m_Name
       value: Laser
+      objectReference: {fileID: 0}
+    - target: {fileID: 9141011739127240388, guid: 785faa94276f7d84fab0e9c7cb51e70e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.11
+      objectReference: {fileID: 0}
+    - target: {fileID: 9141011739127240388, guid: 785faa94276f7d84fab0e9c7cb51e70e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.15
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []

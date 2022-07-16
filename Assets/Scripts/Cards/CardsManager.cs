@@ -55,7 +55,6 @@ public class CardsManager : MonoBehaviour
             while (newGameEvent == _chosenGameEvent)
             {
                 var rnd = UnityEngine.Random.Range(0, numOfGameEvents);
-                Debug.Log("event "+rnd.ToString());
 
                 newGameEvent = (GameEvent)rnd;
             }
@@ -63,9 +62,7 @@ public class CardsManager : MonoBehaviour
             await UniTask.Delay(cardAnimationSpeedMilliSeconds);
         }
 
-        _chosenGameEvent = GameEvent.Flood;
-        //_chosenGameEvent = newGameEvent;
-        Debug.Log("Chosen: "+_chosenGameEvent);
+        _chosenGameEvent = newGameEvent;
     }
 
 

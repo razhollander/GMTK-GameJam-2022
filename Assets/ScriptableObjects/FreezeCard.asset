@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: FreezeCard
   m_EditorClassIdentifier: 
   CardImage: {fileID: 21300000, guid: f40fa36a4ce5d4de6b28db5521772a72, type: 3}
-  CardGameEvent: 4
+  CardGameEvent: 3
