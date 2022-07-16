@@ -176,7 +176,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9141011739072452553}
   - component: {fileID: 9141011739072452552}
-  - component: {fileID: 18604187157905555}
+  - component: {fileID: 5694197294198107034}
   m_Layer: 0
   m_Name: Laser
   m_TagString: Untagged
@@ -216,7 +216,7 @@ MonoBehaviour:
   laserHead: {fileID: 9141011739127240388}
   startPos: {fileID: 9141011738618255254}
   range: 50
---- !u!95 &18604187157905555
+--- !u!95 &5694197294198107034
 Animator:
   serializedVersion: 4
   m_ObjectHideFlags: 0
@@ -224,9 +224,9 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9141011739072452555}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 73e02653137b38a4bb13c6e123bf3966, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
