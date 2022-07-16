@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5757afd805fdd4f90a72b69e34366f59, type: 3}
   m_Name: ElectricityCard
   m_EditorClassIdentifier: 
-  CardImage: {fileID: 0}
+  CardImage: {fileID: 21300000, guid: 65ec4b45867544cbabbe5f4c5b4149c8, type: 3}
   CardGameEvent: 1

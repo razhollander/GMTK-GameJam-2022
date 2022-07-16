@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 public class CardsManager : MonoBehaviour
 {
@@ -12,6 +13,8 @@ public class CardsManager : MonoBehaviour
     [SerializeField] private List<Card> _cards;
     [SerializeField] private int cardAnimationSpeedMilliSeconds = 100;
     [SerializeField] private int numberOfRandomness = 10;
+    [SerializeField] private Vector2 minMaxGameEventDuration = new Vector2(10, 15);
+    
     private GameEvent _chosenGameEvent;
     
     
@@ -21,12 +24,26 @@ public class CardsManager : MonoBehaviour
         cardGO.SetActive(true);
         await RunCardRandom();
         GameManager.Instance.GameEventsSystem.FireGameEvent(_chosenGameEvent);
+        StartCoroutine(StartTimer());
+    }
+
+    private IEnumerator StartTimer()
+    {
+        var duration = Random.Range(minMaxGameEventDuration.x, minMaxGameEventDuration.y+1);
+        
+        while (duration>0)
+        {
+            duration -= Time.deltaTime;
+
+            yield return null;
+        }
+
+        GenerateRandomCard();
     }
 
     private async UniTask RunCardRandom()
     {
         var numOfGameEvents = Enum.GetValues(typeof(GameEvent)).Length;
-        Debug.Log("NumOf+"+numOfGameEvents);
 
         GameEvent newGameEvent = _chosenGameEvent;
 
