@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -10,6 +11,8 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance;
     public CameraManager CameraManager;
     public GameEventsSystem GameEventsSystem;
+    public CardsManager CardManager;
+
     [SerializeField] public MoneyManager MoneyManager;
     
     float _prevTimeScale = 1;
@@ -19,7 +22,15 @@ public class GameManager : MonoBehaviour
         Instance = this;
         
         SetupSystems();
+        StartCoroutine(Wait10Sec());
     }
+
+    private IEnumerator Wait10Sec()
+    {
+        yield return new WaitForSeconds(10);
+        CardManager.GenerateRandomCard();
+    }
+    
     private void OnEnable()
     {
         Instance = this;
