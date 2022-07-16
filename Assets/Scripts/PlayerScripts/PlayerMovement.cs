@@ -20,7 +20,7 @@ public class PlayerMovement : MonoBehaviour
     //private Animator animator;
 
     public bool rolling = false;
-
+    [SerializeField] private float slideCooldownInSeconds =1;
     private bool can_dash = true;
     private Vector3 scaleStart; 
     void Start()
@@ -77,9 +77,15 @@ public class PlayerMovement : MonoBehaviour
     {
         rolling = true;
         yield return new WaitForSeconds(roll_time);
-        can_dash = true;
         rolling = false;
         _anim.SetBool("Slide", false);
+        StartCoroutine(coolDownDash());
+    }
+
+    IEnumerator coolDownDash()
+    {
+        yield return new WaitForSeconds(slideCooldownInSeconds);
+        can_dash = true;
     }
     
     
