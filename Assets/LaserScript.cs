@@ -9,7 +9,7 @@ public class LaserScript : MonoBehaviour
     public Transform room;
     Vector2 dir = Vector2.left;
     public float range;
-    public int layer;
+    private int layer;
     void Start()
     {
         lr = GetComponent<LineRenderer>();
