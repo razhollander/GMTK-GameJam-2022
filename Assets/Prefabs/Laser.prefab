@@ -198,7 +198,7 @@ Transform:
   m_Children:
   - {fileID: 9141011739127240388}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!120 &9141011739072452567
 LineRenderer:
@@ -252,8 +252,8 @@ LineRenderer:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
-        time: 0
-        value: 0.10526466
+        time: 0.0035460992
+        value: 0.12179172
         inSlope: 0
         outSlope: 0
         tangentMode: 0
