@@ -198,7 +198,7 @@ Transform:
   m_Children:
   - {fileID: 9141011739127240388}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &9141011739072452552
 MonoBehaviour:
@@ -214,6 +214,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lr: {fileID: 2174224252547201970}
   laserHead: {fileID: 9141011739127240388}
+  _anim: {fileID: 5694197294198107034}
   startPos: {fileID: 9141011738618255254}
   range: 50
 --- !u!95 &5694197294198107034

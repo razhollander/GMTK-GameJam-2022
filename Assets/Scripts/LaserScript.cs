@@ -6,7 +6,7 @@ public class LaserScript : GaneEventListener
 {
     [SerializeField] LineRenderer lr;
     [SerializeField] Transform laserHead;
-
+    [SerializeField] private Animator _anim;
     public Transform startPos;
     Vector2 dir = Vector2.left;
     public float range;
@@ -26,10 +26,14 @@ public class LaserScript : GaneEventListener
         if (gameEvent == GameEvent.Electricity)
         {
             _isElectricityOn = false;
+            _anim.enabled = false;
+            lr.gameObject.SetActive(false);
         }
         else
         {
             _isElectricityOn = true;
+            _anim.enabled = true;
+            lr.gameObject.SetActive(true);
         }
     }
 
