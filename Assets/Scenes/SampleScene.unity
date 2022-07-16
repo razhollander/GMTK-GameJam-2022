@@ -1614,6 +1614,10 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 1506312918}
     m_Modifications:
+    - target: {fileID: 4344189103261139137, guid: f9b3b098013264048be392e42be4f96b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4344189104668881822, guid: f9b3b098013264048be392e42be4f96b, type: 3}
       propertyPath: m_Name
       value: Room_1_2 (1)
