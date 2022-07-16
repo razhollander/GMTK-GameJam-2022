@@ -9,6 +9,7 @@ public class PlayerMovement : MonoBehaviour
     [HideInInspector]
     public float MoveDirectionY;
 
+    [SerializeField] private Animator _anim;
     private Rigidbody2D rb;
 
     [SerializeField]
@@ -21,9 +22,12 @@ public class PlayerMovement : MonoBehaviour
     public bool rolling = false;
 
     private bool can_dash = true;
+    private Vector3 scaleStart; 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        scaleStart = transform.localScale;
+
         //animator = GetComponent<Animator>();
     }
     private void Update()
@@ -37,6 +41,24 @@ public class PlayerMovement : MonoBehaviour
         MoveDirectionY = Input.GetAxisRaw("Vertical");
         rb.AddForce( new Vector2(MoveDirectionX * Speed, MoveDirectionY * Speed), ForceMode2D.Force);
 
+        if (rb.velocity.x < 0)
+        {
+            transform.localScale = new Vector3(-scaleStart.x, scaleStart.y,scaleStart.z);
+        }
+        else
+        {
+            transform.localScale = new Vector3(scaleStart.x, scaleStart.y,scaleStart.z);
+
+        }
+        if (MoveDirectionX != 0 || MoveDirectionY != 0)
+        {
+            _anim.SetBool("Move", true);
+        }
+        else
+        {
+            _anim.SetBool("Move", false);
+        }
+
         if (Input.GetKey(KeyCode.Space) && can_dash)
         {
             Roll();
@@ -47,7 +69,8 @@ public class PlayerMovement : MonoBehaviour
     {
         can_dash = false;
         rb.AddForce(new Vector2(MoveDirectionX, MoveDirectionY) * roll_speed, ForceMode2D.Impulse);
-        StartCoroutine(start_dash());  
+        StartCoroutine(start_dash()); 
+        _anim.SetBool("Slide", true);
     }
 
     IEnumerator start_dash()
@@ -56,6 +79,7 @@ public class PlayerMovement : MonoBehaviour
         yield return new WaitForSeconds(roll_time);
         can_dash = true;
         rolling = false;
+        _anim.SetBool("Slide", false);
     }
     
     
