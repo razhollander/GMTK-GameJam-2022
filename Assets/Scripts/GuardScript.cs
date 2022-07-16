@@ -87,12 +87,14 @@ public class GuardScript : GaneEventListener
         diff.Normalize();
         if (diff.x > 0)
         {
-            renderer.gameObject.transform.localScale = new Vector3(-1, 1, 1);
+            var prevScale = renderer.gameObject.transform.localScale;
+            renderer.gameObject.transform.localScale = new Vector3(-0.1f, prevScale.y,prevScale.z);
         }
 
         else
         {
-            renderer.gameObject.transform.localScale = new Vector3(1, 1, 1);
+            var prevScale = renderer.gameObject.transform.localScale;
+            renderer.gameObject.transform.localScale = new Vector3(0.1f,  prevScale.y,prevScale.z);
         }
     }
 
