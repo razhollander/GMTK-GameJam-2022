@@ -28,7 +28,7 @@ public class PiranaScript : GaneEventListener
         }    
         if (gameEvent == GameEvent.Flood)
         {
-            speed /= 2;
+            speed *= 2;
             is_free = true;
             flooded = true;
         }

@@ -2,8 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour
+public class PlayerMovement : GaneEventListener
 {
+
+
+
     [HideInInspector]
     public float MoveDirectionX;
     [HideInInspector]
@@ -14,6 +17,7 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField]
     private int Speed;
+    private int init_Speed;
     [SerializeField]
     private int roll_speed;
     [SerializeField] private float roll_time;
@@ -22,12 +26,22 @@ public class PlayerMovement : MonoBehaviour
     public bool rolling = false;
     [SerializeField] private float slideCooldownInSeconds =1;
     private bool can_dash = true;
-    private Vector3 scaleStart; 
+    private Vector3 scaleStart;
+
+    public override void OnGameEvent(GameEvent gameEvent)
+    {
+        Speed = init_Speed;
+        if (gameEvent == GameEvent.Freeze)
+        {
+            Speed /= 2;
+        }
+    }
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         scaleStart = transform.localScale;
-
+        init_Speed = Speed;
         //animator = GetComponent<Animator>();
     }
     private void Update()
