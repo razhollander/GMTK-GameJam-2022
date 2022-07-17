@@ -74,6 +74,7 @@ public class GameManager : MonoBehaviour
             isFlagGameOver = true;
             Debug.Log("GameOver");
             Time.timeScale = 0;
+            SaveHighScore();
             canvas.GetComponent<Animator>().SetBool("GameOver", true);
         }
     }
