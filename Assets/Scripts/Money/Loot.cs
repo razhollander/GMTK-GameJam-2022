@@ -19,7 +19,17 @@ public class Loot : MonoBehaviour
     [SerializeField] private int _bigAmount = 1000;
     [SerializeField] private Collider2D _collider;
 
+    [HideInInspector] private bool isCollected = false;
+    
+    public bool IsCollected
+    {
+        get { return isCollected; }
+    }
     private bool isGiveAlready = false;
+    public bool IsGiveAlready
+    {
+        get { return isGiveAlready; }
+    }
     private void Awake()
     {
         if (_moneyAmount < _mediumAmount)
@@ -47,6 +57,7 @@ public class Loot : MonoBehaviour
         if (other.CompareTag("Player") && !isGiveAlready)
         {
             isGiveAlready = true;
+            isCollected = true;
             GameManager.Instance.MoneyManager.AddMoney(_moneyAmount);
             DoEffect();
         }

@@ -5,14 +5,20 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    private const string SCORE = "Score";
+    public const string SCORE = "Score";
     private const string SAMPLE_SCENE_NAME = "SampleScene";
-    
+    private string saveScore = "ScoreSaved";
+
+    public PlayerMovement player;
     public static GameManager Instance;
     public CameraManager CameraManager;
     public GameEventsSystem GameEventsSystem;
     public CardsManager CardManager;
     public Canvas canvas;
+    public GameScoreText gameScoreText;
+    public GameScoreText gameWinnerText;
+
+    [SerializeField] private GameObject winnerPanel;
     [SerializeField] public MoneyManager MoneyManager;
     private bool isFlagGameOver = false;
     float _prevTimeScale = 1;
@@ -45,7 +51,7 @@ public class GameManager : MonoBehaviour
     public void SaveHighScore()
     {
         var currentMaxScore = SaveLocallyHandler.LoadInt(SCORE);
-        var currentGameScore = 0;
+        var currentGameScore = MoneyManager.Money;
         
         if (currentGameScore > currentMaxScore)
         {
@@ -72,10 +78,12 @@ public class GameManager : MonoBehaviour
         if (!isFlagGameOver)
         {
             isFlagGameOver = true;
-            Debug.Log("GameOver");
+            player.lose();
             Time.timeScale = 0;
             SaveHighScore();
             canvas.GetComponent<Animator>().SetBool("GameOver", true);
+            SaveHighScore();
+            gameScoreText.SetText();
         }
     }
 
@@ -84,4 +92,11 @@ public class GameManager : MonoBehaviour
         Application.Quit();
     }
 
+    public void Win()
+    {
+            Time.timeScale = 0;
+            winnerPanel.SetActive(true);
+            SaveHighScore();
+            gameWinnerText.SetText();
+    }
 }
