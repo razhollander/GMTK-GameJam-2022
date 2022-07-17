@@ -444,7 +444,7 @@ MonoBehaviour:
   camera_head: {fileID: 7734640822374776108}
   _chosenPath: {fileID: 6080114127858237818}
   light_spot: {fileID: 6162292689867207926}
-  lightSpeed: 2
+  lightSpeed: 1
   minDist: 1
 --- !u!95 &6023774555156326085
 Animator:
@@ -600,7 +600,7 @@ MonoBehaviour:
   m_LightType: 3
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.232
-  m_Color: {r: 1, g: 0.99136764, b: 0.7962264, a: 1}
+  m_Color: {r: 1, g: 0.9827286, b: 0.5509434, a: 1}
   m_Intensity: 3
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 0
