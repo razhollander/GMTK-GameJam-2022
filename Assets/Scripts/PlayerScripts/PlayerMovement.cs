@@ -101,6 +101,10 @@ public class PlayerMovement : GaneEventListener
         yield return new WaitForSeconds(slideCooldownInSeconds);
         can_dash = true;
     }
-    
+
+    public void lose()
+    {
+        _anim.SetBool("Lose", true);
+    }
     
 }
