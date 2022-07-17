@@ -7,7 +7,8 @@ public class GameManager : MonoBehaviour
 {
     private const string SCORE = "Score";
     private const string SAMPLE_SCENE_NAME = "SampleScene";
-    
+    private string saveScore = "ScoreSaved";
+
     public static GameManager Instance;
     public CameraManager CameraManager;
     public GameEventsSystem GameEventsSystem;
@@ -72,9 +73,9 @@ public class GameManager : MonoBehaviour
         if (!isFlagGameOver)
         {
             isFlagGameOver = true;
-            Debug.Log("GameOver");
             Time.timeScale = 0;
             canvas.GetComponent<Animator>().SetBool("GameOver", true);
+            SaveHighScore();
         }
     }
 
